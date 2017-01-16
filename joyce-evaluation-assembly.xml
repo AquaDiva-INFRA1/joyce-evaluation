@@ -1,5 +1,5 @@
 <assembly>
-  <id>ados-evaluation-assembly</id>
+  <id>joyce-evaluation-assembly</id>
   <formats>
   	<format>jar</format>
   </formats>

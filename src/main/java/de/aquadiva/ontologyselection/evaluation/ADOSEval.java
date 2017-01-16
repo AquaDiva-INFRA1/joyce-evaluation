@@ -30,7 +30,7 @@ import de.aquadiva.ontologyselection.base.data.Ontology;
 import de.aquadiva.ontologyselection.base.data.ScoreType;
 import de.aquadiva.ontologyselection.evaluation.data.Setting;
 import de.aquadiva.ontologyselection.evaluation.services.IBiOSSComparator;
-import de.aquadiva.ontologyselection.evaluation.services.OSEvaluationModule;
+import de.aquadiva.ontologyselection.evaluation.services.JoyceEvaluationModule;
 import de.aquadiva.ontologyselection.processes.services.OntologyModuleSelectionService;
 import de.aquadiva.ontologyselection.processes.services.OntologyModuleSelectionService.SelectionParameters;
 
@@ -42,7 +42,7 @@ public class ADOSEval {
 
 		Registry registry = null;
 		try {
-			registry = RegistryBuilder.buildAndStartupRegistry(OSEvaluationModule.class);
+			registry = RegistryBuilder.buildAndStartupRegistry(JoyceEvaluationModule.class);
 			IBiOSSComparator biosComparator = registry.getService(IBiOSSComparator.class);
 
 			String settingsDir = "eval/settings/";

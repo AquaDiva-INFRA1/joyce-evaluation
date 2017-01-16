@@ -15,7 +15,7 @@ import de.aquadiva.ontologyselection.base.data.ScoreType;
 import de.aquadiva.ontologyselection.core.services.ConceptTaggingService;
 import de.aquadiva.ontologyselection.evaluation.data.Setting;
 import de.aquadiva.ontologyselection.evaluation.services.IBiOSSComparator;
-import de.aquadiva.ontologyselection.evaluation.services.OSEvaluationModule;
+import de.aquadiva.ontologyselection.evaluation.services.JoyceEvaluationModule;
 
 public class BiOSSEval {
 
@@ -25,7 +25,7 @@ public class BiOSSEval {
 		Registry r = null;
 		try {
 			r = RegistryBuilder
-					.buildAndStartupRegistry(OSEvaluationModule.class);
+					.buildAndStartupRegistry(JoyceEvaluationModule.class);
 			IBiOSSComparator biosComparator = r
 					.getService(IBiOSSComparator.class);
 			
