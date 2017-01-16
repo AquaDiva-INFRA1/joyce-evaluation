@@ -1,0 +1,13 @@
+os.setup.download.bioportal=false
+os.setup.convert=true
+os.setup.errors.file=ERRORS_SETUP.txt
+os.ontologies.download.errors.file=ERRORS_DOWNLOAD.txt
+os.ontologies.downloaddir=src/test/resources/ontology-download
+os.ontologies.owl.dir=src/test/resources/ontology-download/owl
+os.ontologies.download.acronyms=GRO,AERO,APO
+os.bioportal.apikey=
+os.jpa.persistence.context=de.aquadiva.ados.jpa
+os.ontologies.concepts.metamapping=resources/metaConceptMapping.tsv.gz
+os.ontologies.modules.concepts.classontologymapping=resources/classontologymapping.tsv.gz
+os.ontologies.dictionary.full.path=resources/bioportalTerms.dict.gz
+os.ontologies.dictionary.filtered.path=src/test/resources/bioportalTerms.test.filtered.dict.gz
