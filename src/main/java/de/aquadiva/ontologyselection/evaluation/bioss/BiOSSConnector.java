@@ -17,9 +17,10 @@ import com.google.gson.GsonBuilder;
 
 import de.aquadiva.ontologyselection.JoyceSymbolConstants;
 import de.aquadiva.ontologyselection.base.services.BioPortalUtil;
+import de.aquadiva.ontologyselection.base.util.ErrorFromNCBORecommenderException;
+import de.aquadiva.ontologyselection.base.util.NoResultFromNCBORecommenderException;
 import de.aquadiva.ontologyselection.evaluation.bioss.data.bioportal.RecommendationResult;
 import de.aquadiva.ontologyselection.evaluation.data.BiOSSParameters;
-import de.aquadiva.ontologyselection.util.NoResultFromNCBORecommenderException;
 
 /**
  * A class providing access methods for the BiOSS recommender hosted at
@@ -93,9 +94,10 @@ public class BiOSSConnector {
 	 * @param key 
 	 * @return a list of recommendation results
 	 * @throws NoResultFromNCBORecommenderException
+	 * @throws ErrorFromNCBORecommenderException 
 	 */
 	public static ArrayList<RecommendationResult> getBiOSSRecommendations(String input, BiOSSParameters biossParams, String key)
-			throws NoResultFromNCBORecommenderException {
+			throws NoResultFromNCBORecommenderException, ErrorFromNCBORecommenderException {
 
 		// prepare input string
 		String keywords = input.replaceAll(" ", "+");
@@ -125,7 +127,10 @@ public class BiOSSConnector {
 		String jsonRecommendation = null;
 		try {
 			jsonRecommendation = BioPortalUtil.getFromUrl(new URL(request));
-		} catch (Exception e1) {
+		} catch (ErrorFromNCBORecommenderException e) {
+			throw e;
+		}
+		catch (Exception e1) {
 			e1.printStackTrace();
 		}
 		int numRetry = 1;

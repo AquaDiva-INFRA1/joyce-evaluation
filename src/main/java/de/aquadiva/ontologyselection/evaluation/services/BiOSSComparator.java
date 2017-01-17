@@ -4,11 +4,9 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.Writer;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -19,22 +17,14 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 import java.util.zip.GZIPInputStream;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.slf4j.Logger;
 
 import com.google.common.collect.Multiset;
 
 import de.aquadiva.ontologyselection.base.data.IOntology;
-import de.aquadiva.ontologyselection.base.data.IOntologySet;
 import de.aquadiva.ontologyselection.base.data.Ontology;
 import de.aquadiva.ontologyselection.base.data.OntologySet;
 import de.aquadiva.ontologyselection.base.data.ScoreType;
@@ -42,9 +32,9 @@ import de.aquadiva.ontologyselection.base.data.bioportal.OntologyInformation;
 import de.aquadiva.ontologyselection.base.services.IConstantOntologyScorer;
 import de.aquadiva.ontologyselection.base.services.IOntologyDBService;
 import de.aquadiva.ontologyselection.base.services.IVariableOntologyScorer;
-import de.aquadiva.ontologyselection.base.services.OWLParsingService;
+import de.aquadiva.ontologyselection.base.util.ErrorFromNCBORecommenderException;
+import de.aquadiva.ontologyselection.base.util.NoResultFromNCBORecommenderException;
 import de.aquadiva.ontologyselection.core.services.IConceptTaggingService;
-import de.aquadiva.ontologyselection.evaluation.ADOSEval;
 import de.aquadiva.ontologyselection.evaluation.bioss.BiOSSConnector;
 import de.aquadiva.ontologyselection.evaluation.bioss.data.bioportal.RecommendationResult;
 import de.aquadiva.ontologyselection.evaluation.data.BiOSSParameters;
@@ -53,7 +43,6 @@ import de.aquadiva.ontologyselection.processes.services.ConstantScoringChain;
 import de.aquadiva.ontologyselection.processes.services.IOntologyModuleSelectionService;
 import de.aquadiva.ontologyselection.processes.services.OntologyModuleSelectionService.SelectionParameters;
 import de.aquadiva.ontologyselection.processes.services.VariableScoringChain;
-import de.aquadiva.ontologyselection.util.NoResultFromNCBORecommenderException;
 
 public class BiOSSComparator implements IBiOSSComparator {
 	private IOntologyDBService dbService;
@@ -81,7 +70,7 @@ public class BiOSSComparator implements IBiOSSComparator {
 	}
 	
 	public void run(List<EvaluationSetting> evalSettings, ScoreType[] scoreTypesToConsider, String outputFile,
-			SelectionParameters params, BiOSSParameters biossParams, String settingsFileName) {
+			SelectionParameters params, BiOSSParameters biossParams, String settingsFileName, String apiKey) throws ErrorFromNCBORecommenderException {
 		// pathToInputOutputFolder = basefolder;
 		// // parse settings file
 		// ArrayList<String[]> settings = new ArrayList<String[]>();
@@ -130,7 +119,7 @@ public class BiOSSComparator implements IBiOSSComparator {
 			// get results
 			if (setting.evaluate_BiOSS) {
 				startTime = System.currentTimeMillis();
-				results = getBiOSSResults(setting.input_terms, biossParams);
+				results = getBiOSSResults(setting.input_terms, biossParams, apiKey);
 				endTime = System.currentTimeMillis();
 			} else {
 				startTime = System.currentTimeMillis();
@@ -527,8 +516,9 @@ public class BiOSSComparator implements IBiOSSComparator {
 	 * 
 	 * @param inputTerms
 	 * @return
+	 * @throws ErrorFromNCBORecommenderException 
 	 */
-	private List<OntologySet> getBiOSSResults(String inputTerms, BiOSSParameters biossParams) {
+	private List<OntologySet> getBiOSSResults(String inputTerms, BiOSSParameters biossParams, String apiKey) throws ErrorFromNCBORecommenderException {
 		//
 		// Multiset<String> concepts = HashMultiset.create();
 		// String ourconcepts = "atid6833, atid15455,
@@ -573,7 +563,7 @@ public class BiOSSComparator implements IBiOSSComparator {
 		// get results from BiOSS
 		ArrayList<RecommendationResult> result;
 		try {
-			result = BiOSSConnector.getBiOSSRecommendations(inputTerms, biossParams);
+			result = BiOSSConnector.getBiOSSRecommendations(inputTerms, biossParams, apiKey);
 		} catch (NoResultFromNCBORecommenderException e) {
 			log.error("Couldn't get a result from NCBO Recommender for the current configuration.", e);
 			return Collections.emptyList();

@@ -1,15 +1,17 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.aquadiva.ontologyselection.JoyceSymbolConstants;
+import de.aquadiva.ontologyselection.base.util.ErrorFromNCBORecommenderException;
+import de.aquadiva.ontologyselection.base.util.NoResultFromNCBORecommenderException;
 import de.aquadiva.ontologyselection.evaluation.bioss.BiOSSConnector;
 import de.aquadiva.ontologyselection.evaluation.bioss.data.bioportal.RecommendationResult;
 import de.aquadiva.ontologyselection.evaluation.data.BiOSSParameters;
-import de.aquadiva.ontologyselection.util.NoResultFromNCBORecommenderException;
 
 
 public class BiOSSConnectorTest {
@@ -19,8 +21,14 @@ public class BiOSSConnectorTest {
 	public void setUp() throws Exception {
 	}
 
+	/**
+	 * Deprecated in the sense that the BiOSSConnector currently asks for ontologies that are not contained in BioPortal
+	 * @throws NoResultFromNCBORecommenderException
+	 * @throws ErrorFromNCBORecommenderException
+	 */
 	@Test
-	public void testGetBiOSSRecommendations() throws NoResultFromNCBORecommenderException {
+	@Ignore
+	public void testGetBiOSSRecommendations() throws NoResultFromNCBORecommenderException, ErrorFromNCBORecommenderException {
 		BiOSSParameters biossParams = new BiOSSParameters();
 		biossParams.acceptance_weight = 0.15;
 		biossParams.coverage_weight = 0.55;

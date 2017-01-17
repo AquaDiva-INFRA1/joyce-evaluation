@@ -26,8 +26,10 @@ import org.slf4j.LoggerFactory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import de.aquadiva.ontologyselection.JoyceSymbolConstants;
 import de.aquadiva.ontologyselection.base.data.Ontology;
 import de.aquadiva.ontologyselection.base.data.ScoreType;
+import de.aquadiva.ontologyselection.base.util.ErrorFromNCBORecommenderException;
 import de.aquadiva.ontologyselection.evaluation.data.Setting;
 import de.aquadiva.ontologyselection.evaluation.services.IBiOSSComparator;
 import de.aquadiva.ontologyselection.evaluation.services.JoyceEvaluationModule;
@@ -38,7 +40,7 @@ public class ADOSEval {
 
 	private static final Logger log = LoggerFactory.getLogger(ADOSEval.class);
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ErrorFromNCBORecommenderException {
 
 		Registry registry = null;
 		try {
@@ -55,8 +57,9 @@ public class ADOSEval {
 				// String settingsFileName = "eval/settings.json";
 				Setting setting = readSettingsFile(settingsFileName);
 				SelectionParameters adosParams = getADOSConfigurationParameters(setting);
+				String apiKey = System.getProperty(JoyceSymbolConstants.BIOPORTAL_API_KEY);
 				biosComparator.run(setting.evaluation_settings, adosParams.scoreTypesToConsider, reportFilename,
-						adosParams, setting.BiOSS_parameters, settingsFileName);
+						adosParams, setting.BiOSS_parameters, settingsFileName, apiKey);
 			}
 
 			// String reportFilename = getExperimentFileName(adosParams);

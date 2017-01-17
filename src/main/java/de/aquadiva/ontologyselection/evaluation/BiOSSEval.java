@@ -13,13 +13,14 @@ import com.google.gson.GsonBuilder;
 
 import de.aquadiva.ontologyselection.JoyceSymbolConstants;
 import de.aquadiva.ontologyselection.base.data.ScoreType;
+import de.aquadiva.ontologyselection.base.util.ErrorFromNCBORecommenderException;
 import de.aquadiva.ontologyselection.evaluation.data.Setting;
 import de.aquadiva.ontologyselection.evaluation.services.IBiOSSComparator;
 import de.aquadiva.ontologyselection.evaluation.services.JoyceEvaluationModule;
 
 public class BiOSSEval {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ErrorFromNCBORecommenderException {
 		System.setProperty(JoyceSymbolConstants.GAZETTEER_CONFIG, "bioportal.gazetteer.eval.properties");
 		
 		Registry r = null;
@@ -53,10 +54,11 @@ public class BiOSSEval {
 //							ScoreType.TERM_COVERAGE, ScoreType.CLASS_OVERHEAD,
 //							ScoreType.CLASS_OVERLAP }, "biossevaloutput_size4.txt", true,
 //							null);
+			String apiKey = System.getProperty(JoyceSymbolConstants.BIOPORTAL_API_KEY);
 			biosComparator
 			.run(setting.evaluation_settings, new ScoreType[] {
 					ScoreType.TERM_COVERAGE, ScoreType.CLASS_OVERHEAD,
-					ScoreType.CLASS_OVERLAP }, "biossevaloutput_size4.txt", null, setting.BiOSS_parameters, "test");
+					ScoreType.CLASS_OVERLAP }, "biossevaloutput_size4.txt", null, setting.BiOSS_parameters, "test", apiKey);
 			
 			
 		} finally {
