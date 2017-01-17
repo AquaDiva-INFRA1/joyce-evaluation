@@ -11,8 +11,8 @@ import org.apache.tapestry5.ioc.RegistryBuilder;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import de.aquadiva.ontologyselection.JoyceSymbolConstants;
 import de.aquadiva.ontologyselection.base.data.ScoreType;
-import de.aquadiva.ontologyselection.core.services.ConceptTaggingService;
 import de.aquadiva.ontologyselection.evaluation.data.Setting;
 import de.aquadiva.ontologyselection.evaluation.services.IBiOSSComparator;
 import de.aquadiva.ontologyselection.evaluation.services.JoyceEvaluationModule;
@@ -20,7 +20,7 @@ import de.aquadiva.ontologyselection.evaluation.services.JoyceEvaluationModule;
 public class BiOSSEval {
 
 	public static void main(String[] args) {
-		System.setProperty(ConceptTaggingService.GAZETTEER_CONFIG, "bioportal.gazetteer.eval.properties");
+		System.setProperty(JoyceSymbolConstants.GAZETTEER_CONFIG, "bioportal.gazetteer.eval.properties");
 		
 		Registry r = null;
 		try {

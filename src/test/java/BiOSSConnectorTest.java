@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.aquadiva.ontologyselection.JoyceSymbolConstants;
 import de.aquadiva.ontologyselection.evaluation.bioss.BiOSSConnector;
 import de.aquadiva.ontologyselection.evaluation.bioss.data.bioportal.RecommendationResult;
 import de.aquadiva.ontologyselection.evaluation.data.BiOSSParameters;
+import de.aquadiva.ontologyselection.util.NoResultFromNCBORecommenderException;
 
 
 public class BiOSSConnectorTest {
@@ -18,7 +20,7 @@ public class BiOSSConnectorTest {
 	}
 
 	@Test
-	public void testGetBiOSSRecommendations() {
+	public void testGetBiOSSRecommendations() throws NoResultFromNCBORecommenderException {
 		BiOSSParameters biossParams = new BiOSSParameters();
 		biossParams.acceptance_weight = 0.15;
 		biossParams.coverage_weight = 0.55;
@@ -28,7 +30,8 @@ public class BiOSSConnectorTest {
 		biossParams.output_type = 2;
 		biossParams.specialization_weight = 0.15;
 		
-		ArrayList<RecommendationResult> recommendations = BiOSSConnector.getBiOSSRecommendations(testInput, biossParams);
+		String apiKey = System.getProperty(JoyceSymbolConstants.BIOPORTAL_API_KEY);
+		ArrayList<RecommendationResult> recommendations = BiOSSConnector.getBiOSSRecommendations(testInput, biossParams, apiKey);
 		assertTrue( recommendations.size()==25 );
 	}
 

@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import de.aquadiva.ontologyselection.JoyceSymbolConstants;
 import de.aquadiva.ontologyselection.base.services.BioPortalUtil;
 import de.aquadiva.ontologyselection.evaluation.bioss.data.bioportal.RecommendationResult;
 import de.aquadiva.ontologyselection.evaluation.data.BiOSSParameters;
@@ -72,7 +73,7 @@ public class BiOSSConnector {
 																// [0,1]
 	// ontologies={ontology_id1, ontology_id2, …, ontology_idN} // default =
 	// (empty) (all BioPortal ontologies will be evaluated).
-// private static String ontologies =
+	// private static String ontologies =
 	// "ontologies=CCON,GRO-CPD,MHC,MIRO,ANCESTRO,VHOG,SDO,CMO,EMAP,PEDTERM,ONL-MSA,MWLA,PSDS,ECO,CANCO,FHHO,VSO,NMOSP,SAO,INO,FB-CV,GFO-BIO,AEO,EFO,LHN,MIXSCV,ONTOMA,TRIAGE,MCCL,BAO-GPCR,ONLIRA,BCTEO,OBI_BCGO,MEDO,TRON,SPD,MCCV,MIRNAO,ELIG,OPB,DERMLEX,STUFF,VARIO,OBI,TGMA,HOM,UBERON,BT,ZEA,VSAO,PTO,EPILONT,PTRANS,MAT,MF,TOP-MENELAS,AERO,VIVO,CO-WHEAT,SCHEMA,RSA,BHO,IDODEN,MPATH,NTDO,VIVO-ISF,ECG,XEO,suicideo,FB-BT,FYPO,EXO,OOEVV,REPO,GALEN,NCRO,CTCAE,CMPO,BAO,XCO,MMO,PMA,DIAGONT,DOID,BNO,NIHSS,SSO,PEAO,EMO,BRIDG,RH-MESH,PPIO,GCO,CHEMINF,SEDI,PDO_CAS,PORO,NBO,BIM,ONSTR,CNO,NMR,ZFA,BSPO,SWO,CSEO,CSSO,CANONT,FB-SP,MEGO,HIVO004,TYPON,NGSONTO,GBM,PROVO,EHDAA,CN,OGMS,BHN,NEOMARK3,NCCO,EDDA,RADLEX,NIFDYS,SITBAC,PECO,GLYCO,IFAR,DERMO,GFVO,HUPSON,pseudo,FAO,PMR,XAO,FIX,CBO,BIOMO,EHDA,ASDPTO,SOY,MFOEM,SYMP,BMT,OBIB,RXNO,OGR,ABA-AMB,GRO-CPGA,BRO,SIO,NEOMARK4,GO-PLUS,GO,TRAK,ODNAE,IXNO,WB-PHENOTYPE,NIGO,ONTOKBCF,ONTODT,APO,SPO,ICD11-BODYSYSTEM,CARELEX,ERO,RNAO,WB-BT,CAO,LPT,ALLERGYDETECTOR,SBO,HPIO,FB-DV,UNITSONT,TM-CONST,SHR,MFO,EDAM,CARO,BP,OMIT,EP,EOL,TM-MER,QUDT,NATPRO,PW,GO-EXT,PDON,DCO-DEBUGIT,SEP,MEO,CDAO,ADO,BDO,PAE,MP,SBOL,OGDI,SPTO,FBbi,TM-SIGNS-AND-SYMPTS,RNPRIO,COGPO,InterNano,FIRE,TADS,ICO,ONTOPNEUMO,HRDO,PATHLEX,NIFSUBCELL,WSIO,PHYLONT,GEXO,CARRE,TAXRANK,PIERO,PR,TOK,MIXS,ATOL,EDAMTO,OBIWS,OPL,TAO,OGMD,ONL-DP,ONTOAD,BSAO,BIRNLEX,VT,RS,GPML,FLOPO,CSO,SO,MO,TMO,ENVO,NPO,OBOREL,HP,CHMO,ADAR,PROPREO,MS,REX,AMINO-ACID,ORTHO,HEIO,AURA,MAMO,TEDDY,ROO,MA,PCO,CU-VO,TM-OTHER-FACTORS,KISAO,PVONTO,IDQA,ICF,PHENX,PSIMOD,LDA,OBCS,PO,GFO,HAO,EHDAA2,BOF,MCBCC,ICECI,BCO,PAV,FO,WB-LS,COGAT,CCONT,DIAB,CCO,NMOBR,NIFSTD,ENM,JERM,ADW,PHARE,NONRCTO,RPO,ATO,GENE-CDS,MERA,ONTOTOXNUC,SMASH,ONTODM-CORE,SWEET,ONTODM-KDD,RETO,ADMIN,GLYCORDF,REXO,STATO,PDO,IMGT-ONTOLOGY,HINO,HUGO,SSE,SD3,WIKIPATHWAYS,VTO,CABRO,CYTO,ORDO,MSV";
 	// private static String ontologies =
 	// "ontologies=PW,BOF,suicideo,AMINO-ACID,SBOL,BSPO,ODNAE,PDO,SHR,VARIO,PHYLONT,ABA-AMB,WSIO,MCCV,ONTOTOXNUC,CANCO,MP,SPO,LDA,CARRE,NMR,VTO,DERMLEX,SBO,CN,MAT,HUPSON,ICO,BHO,EHDA,HPIO,EHDAA2,HIVO004,NEOMARK3,PORO,TM-MER,TRIAGE,BIRNLEX,GO-PLUS,BCO,EMO,GEXO,CSO,MF,CTCAE,TM-OTHER-FACTORS,CYTO,ZEA,TOK,HP,OBIWS,ICF,RPO,PHARE,STATO,BP,COGAT,PATHLEX,XEO,MEGO,RETO,CDAO,ONTOKBCF,MHC,GO-EXT,XAO,DERMO,PHENX,OGMD,CBO,CSSO,IFAR,TMO,MCCL,DCO-DEBUGIT,FB-SP,GLYCO,PO,OMIT,AURA,CCONT,PIERO,PAE,MFOEM,MEO,SYMP,NPO,PSDS,NIFSUBCELL,RXNO,CANONT,WB-LS,TM-CONST,OBCS,NIGO,LPT,BIM,BIOMO,MFO,PVONTO,BHN,FIRE,CARO,OBIB,MERA,ASDPTO,SSO,MS,VSO,ADMIN,OBI,MWLA,NONRCTO,CAO,SITBAC,REX,TYPON,GLYCORDF,WB-BT,NIFDYS,InterNano,KISAO,MSV,STUFF,PDO_CAS,ADO,SIO,GENE-CDS,OGMS,BMT,ICD11-BODYSYSTEM,RH-MESH,ONTODT,SCHEMA,GFVO,ICECI,SDO,CHMO,VT,NIHSS,TGMA,SEDI,PEAO,DIAB,FAO,TRON,EPILONT,BSAO,IMGT-ONTOLOGY,ERO,OBI_BCGO,CSEO,GO,ONTOAD,ORTHO,CO-WHEAT,EHDAA,FB-DV,MMO,IDQA,MO,CMPO,ANCESTRO,UNITSONT,PCO,GRO-CPGA,AEO,CABRO,PR,MAMO,BNO,WIKIPATHWAYS,CNO,NBO,PSIMOD,EXO,NTDO,EOL,PMR,TOP-MENELAS,EP,NMOSP,NGSONTO,RNAO,ROO,PAV,JERM,OPB,VIVO-ISF,SWO,SPD,GCO,NATPRO,RADLEX,SOY,FBbi,FB-CV,ENVO,APO,MIRO,TM-SIGNS-AND-SYMPTS,PPIO,ORDO,ONLIRA,CCON,FO,ATO,REXO,NCCO,SPTO,QUDT,HAO,COGPO,NEOMARK4,VHOG,ONL-MSA,LHN,ECO,OPL,BT,HUGO,CCO,BAO,FYPO,SEP,MIRNAO,SAO,SO,ATOL,FB-BT,GRO-CPD,ELIG,GBM,HINO,UBERON,HEIO,SSE,BAO-GPCR,MIXSCV,PROPREO,MCBCC,MIXS,EMAP,EFO,ONL-DP,PDON,RNPRIO,MEDO,EDAM,TRAK,BRIDG,pseudo,XCO,REPO,GPML,TADS,PEDTERM,GFO,SD3,PTRANS,GFO-BIO,IDODEN,RS,FHHO,ADAR,EDDA,NCRO,INO,GALEN,FIX,ONSTR,PMA,PROVO,WB-PHENOTYPE,CMO,HOM,OOEVV,VSAO,ECG,ONTODM-CORE,DIAGONT,IXNO,DOID,ONTOMA,ONTODM-KDD,OGDI,HRDO,BRO,AERO,TAXRANK,TEDDY,ADW,VIVO,RSA,BCTEO,CARELEX,MPATH,BDO,PECO,OGR,MA,PTO,ALLERGYDETECTOR,TAO,ONTOPNEUMO,ZFA,EDAMTO,FLOPO,CHEMINF,CU-VO";
@@ -89,10 +90,11 @@ public class BiOSSConnector {
 	 * 
 	 * @param input
 	 *            comma separated keywords
+	 * @param key 
 	 * @return a list of recommendation results
 	 * @throws NoResultFromNCBORecommenderException
 	 */
-	public static ArrayList<RecommendationResult> getBiOSSRecommendations(String input, BiOSSParameters biossParams)
+	public static ArrayList<RecommendationResult> getBiOSSRecommendations(String input, BiOSSParameters biossParams, String key)
 			throws NoResultFromNCBORecommenderException {
 
 		// prepare input string
@@ -112,13 +114,13 @@ public class BiOSSConnector {
 		// String jsonRecommendation = BioPortalUtil.getFromUrl(new URL(
 		// request),
 		// API_KEY);
-		String key = "";
-		assert !StringUtils.isBlank(key);
-		String request = REST_URL_BIOPORTAL + "/recommender?apikey=" + key + "&input="
-				+ keywords + "&input_type=" + biossParams.input_type + "&output_type=" + biossParams.output_type
-				+ "&max_elements_set=" + biossParams.maximal_number_of_elements_per_set + "&wc="
-				+ biossParams.coverage_weight + "&ws=" + biossParams.specialization_weight + "&wa="
-				+ biossParams.acceptance_weight + "&wd=" + biossParams.knowledge_detail_weight + "&" + ontologies;
+		assert !StringUtils.isBlank(key) : "A valid BioPortal API key has to be delivered via the Java system property "
+				+ JoyceSymbolConstants.BIOPORTAL_API_KEY + " or via this symbol in the configuration file.";
+		String request = REST_URL_BIOPORTAL + "/recommender?apikey=" + key + "&input=" + keywords + "&input_type="
+				+ biossParams.input_type + "&output_type=" + biossParams.output_type + "&max_elements_set="
+				+ biossParams.maximal_number_of_elements_per_set + "&wc=" + biossParams.coverage_weight + "&ws="
+				+ biossParams.specialization_weight + "&wa=" + biossParams.acceptance_weight + "&wd="
+				+ biossParams.knowledge_detail_weight + "&" + ontologies;
 		log.info("Sending post request to NCBO Recommender: {}", request);
 		String jsonRecommendation = null;
 		try {
