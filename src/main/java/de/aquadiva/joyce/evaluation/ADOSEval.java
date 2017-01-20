@@ -1,4 +1,4 @@
-package de.aquadiva.ontologyselection.evaluation;
+package de.aquadiva.joyce.evaluation;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -26,15 +26,15 @@ import org.slf4j.LoggerFactory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import de.aquadiva.ontologyselection.JoyceSymbolConstants;
-import de.aquadiva.ontologyselection.base.data.Ontology;
-import de.aquadiva.ontologyselection.base.data.ScoreType;
-import de.aquadiva.ontologyselection.base.util.ErrorFromNCBORecommenderException;
-import de.aquadiva.ontologyselection.evaluation.data.Setting;
-import de.aquadiva.ontologyselection.evaluation.services.IBiOSSComparator;
-import de.aquadiva.ontologyselection.evaluation.services.JoyceEvaluationModule;
-import de.aquadiva.ontologyselection.processes.services.OntologyModuleSelectionService;
-import de.aquadiva.ontologyselection.processes.services.OntologyModuleSelectionService.SelectionParameters;
+import de.aquadiva.joyce.JoyceSymbolConstants;
+import de.aquadiva.joyce.base.data.Ontology;
+import de.aquadiva.joyce.base.data.ScoreType;
+import de.aquadiva.joyce.base.util.ErrorFromNCBORecommenderException;
+import de.aquadiva.joyce.evaluation.data.Setting;
+import de.aquadiva.joyce.evaluation.services.IBiOSSComparator;
+import de.aquadiva.joyce.evaluation.services.JoyceEvaluationModule;
+import de.aquadiva.joyce.processes.services.OntologyModuleSelectionService;
+import de.aquadiva.joyce.processes.services.OntologyModuleSelectionService.SelectionParameters;
 
 public class ADOSEval {
 

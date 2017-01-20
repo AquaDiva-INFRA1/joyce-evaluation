@@ -1,4 +1,4 @@
-package de.aquadiva.ontologyselection.evaluation.bioss;
+package de.aquadiva.joyce.evaluation.bioss;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -15,12 +15,12 @@ import org.slf4j.LoggerFactory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import de.aquadiva.ontologyselection.JoyceSymbolConstants;
-import de.aquadiva.ontologyselection.base.services.BioPortalUtil;
-import de.aquadiva.ontologyselection.base.util.ErrorFromNCBORecommenderException;
-import de.aquadiva.ontologyselection.base.util.NoResultFromNCBORecommenderException;
-import de.aquadiva.ontologyselection.evaluation.bioss.data.bioportal.RecommendationResult;
-import de.aquadiva.ontologyselection.evaluation.data.BiOSSParameters;
+import de.aquadiva.joyce.JoyceSymbolConstants;
+import de.aquadiva.joyce.base.services.BioPortalUtil;
+import de.aquadiva.joyce.base.util.ErrorFromNCBORecommenderException;
+import de.aquadiva.joyce.base.util.NoResultFromNCBORecommenderException;
+import de.aquadiva.joyce.evaluation.bioss.data.bioportal.RecommendationResult;
+import de.aquadiva.joyce.evaluation.data.BiOSSParameters;
 
 /**
  * A class providing access methods for the BiOSS recommender hosted at

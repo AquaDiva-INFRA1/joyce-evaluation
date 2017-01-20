@@ -1,4 +1,4 @@
-package de.aquadiva.ontologyselection.evaluation;
+package de.aquadiva.joyce.evaluation;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;

@@ -6,12 +6,12 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import de.aquadiva.ontologyselection.JoyceSymbolConstants;
-import de.aquadiva.ontologyselection.base.util.ErrorFromNCBORecommenderException;
-import de.aquadiva.ontologyselection.base.util.NoResultFromNCBORecommenderException;
-import de.aquadiva.ontologyselection.evaluation.bioss.BiOSSConnector;
-import de.aquadiva.ontologyselection.evaluation.bioss.data.bioportal.RecommendationResult;
-import de.aquadiva.ontologyselection.evaluation.data.BiOSSParameters;
+import de.aquadiva.joyce.JoyceSymbolConstants;
+import de.aquadiva.joyce.base.util.ErrorFromNCBORecommenderException;
+import de.aquadiva.joyce.base.util.NoResultFromNCBORecommenderException;
+import de.aquadiva.joyce.evaluation.bioss.BiOSSConnector;
+import de.aquadiva.joyce.evaluation.bioss.data.bioportal.RecommendationResult;
+import de.aquadiva.joyce.evaluation.data.BiOSSParameters;
 
 
 public class BiOSSConnectorTest {

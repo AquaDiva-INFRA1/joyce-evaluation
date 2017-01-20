@@ -2,7 +2,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.aquadiva.ontologyselection.evaluation.services.BiOSSComparator;
+import de.aquadiva.joyce.evaluation.services.BiOSSComparator;
 
 
 public class BiOSSComparatorTest {

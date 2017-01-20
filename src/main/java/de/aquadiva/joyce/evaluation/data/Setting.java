@@ -1,4 +1,4 @@
-package de.aquadiva.ontologyselection.evaluation.data;
+package de.aquadiva.joyce.evaluation.data;
 
 import java.util.List;
 

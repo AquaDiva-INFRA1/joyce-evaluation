@@ -1,8 +1,8 @@
-package de.aquadiva.ontologyselection.evaluation.bioss.data.bioportal;
+package de.aquadiva.joyce.evaluation.bioss.data.bioportal;
 
 import java.util.List;
 
-import de.aquadiva.ontologyselection.base.data.bioportal.OntologyInformation;
+import de.aquadiva.joyce.base.data.bioportal.OntologyInformation;
 
 public class RecommendationResult {
 	public double evaluationScore;

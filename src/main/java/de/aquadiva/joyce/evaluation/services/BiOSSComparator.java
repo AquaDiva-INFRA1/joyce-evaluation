@@ -1,4 +1,4 @@
-package de.aquadiva.ontologyselection.evaluation.services;
+package de.aquadiva.joyce.evaluation.services;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,25 +24,25 @@ import org.slf4j.Logger;
 
 import com.google.common.collect.Multiset;
 
-import de.aquadiva.ontologyselection.base.data.IOntology;
-import de.aquadiva.ontologyselection.base.data.Ontology;
-import de.aquadiva.ontologyselection.base.data.OntologySet;
-import de.aquadiva.ontologyselection.base.data.ScoreType;
-import de.aquadiva.ontologyselection.base.data.bioportal.OntologyInformation;
-import de.aquadiva.ontologyselection.base.services.IConstantOntologyScorer;
-import de.aquadiva.ontologyselection.base.services.IOntologyDBService;
-import de.aquadiva.ontologyselection.base.services.IVariableOntologyScorer;
-import de.aquadiva.ontologyselection.base.util.ErrorFromNCBORecommenderException;
-import de.aquadiva.ontologyselection.base.util.NoResultFromNCBORecommenderException;
-import de.aquadiva.ontologyselection.core.services.IConceptTaggingService;
-import de.aquadiva.ontologyselection.evaluation.bioss.BiOSSConnector;
-import de.aquadiva.ontologyselection.evaluation.bioss.data.bioportal.RecommendationResult;
-import de.aquadiva.ontologyselection.evaluation.data.BiOSSParameters;
-import de.aquadiva.ontologyselection.evaluation.data.EvaluationSetting;
-import de.aquadiva.ontologyselection.processes.services.ConstantScoringChain;
-import de.aquadiva.ontologyselection.processes.services.IOntologyModuleSelectionService;
-import de.aquadiva.ontologyselection.processes.services.OntologyModuleSelectionService.SelectionParameters;
-import de.aquadiva.ontologyselection.processes.services.VariableScoringChain;
+import de.aquadiva.joyce.base.data.IOntology;
+import de.aquadiva.joyce.base.data.Ontology;
+import de.aquadiva.joyce.base.data.OntologySet;
+import de.aquadiva.joyce.base.data.ScoreType;
+import de.aquadiva.joyce.base.data.bioportal.OntologyInformation;
+import de.aquadiva.joyce.base.services.IConstantOntologyScorer;
+import de.aquadiva.joyce.base.services.IOntologyDBService;
+import de.aquadiva.joyce.base.services.IVariableOntologyScorer;
+import de.aquadiva.joyce.base.util.ErrorFromNCBORecommenderException;
+import de.aquadiva.joyce.base.util.NoResultFromNCBORecommenderException;
+import de.aquadiva.joyce.core.services.IConceptTaggingService;
+import de.aquadiva.joyce.evaluation.bioss.BiOSSConnector;
+import de.aquadiva.joyce.evaluation.bioss.data.bioportal.RecommendationResult;
+import de.aquadiva.joyce.evaluation.data.BiOSSParameters;
+import de.aquadiva.joyce.evaluation.data.EvaluationSetting;
+import de.aquadiva.joyce.processes.services.ConstantScoringChain;
+import de.aquadiva.joyce.processes.services.IOntologyModuleSelectionService;
+import de.aquadiva.joyce.processes.services.VariableScoringChain;
+import de.aquadiva.joyce.processes.services.OntologyModuleSelectionService.SelectionParameters;
 
 public class BiOSSComparator implements IBiOSSComparator {
 	private IOntologyDBService dbService;
