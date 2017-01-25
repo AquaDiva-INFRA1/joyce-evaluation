@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.tapestry5.ioc.Registry;
@@ -33,12 +31,11 @@ import de.aquadiva.joyce.base.util.ErrorFromNCBORecommenderException;
 import de.aquadiva.joyce.evaluation.data.Setting;
 import de.aquadiva.joyce.evaluation.services.IBiOSSComparator;
 import de.aquadiva.joyce.evaluation.services.JoyceEvaluationModule;
-import de.aquadiva.joyce.processes.services.OntologyModuleSelectionService;
-import de.aquadiva.joyce.processes.services.OntologyModuleSelectionService.SelectionParameters;
+import de.aquadiva.joyce.processes.services.SelectionParameters;
 
-public class ADOSEval {
+public class JoyceEval {
 
-	private static final Logger log = LoggerFactory.getLogger(ADOSEval.class);
+	private static final Logger log = LoggerFactory.getLogger(JoyceEval.class);
 	
 	public static void main(String[] args) throws ErrorFromNCBORecommenderException {
 
@@ -100,7 +97,7 @@ public class ADOSEval {
 	}
 
 	private static SelectionParameters getADOSConfigurationParameters(Setting setting) {
-		SelectionParameters adosParams = new OntologyModuleSelectionService.SelectionParameters();
+		SelectionParameters adosParams = new SelectionParameters();
 
 		adosParams.sampleSize = setting.ADOS_parameters.sample_size;
 		adosParams.maxElementsPerSet = setting.ADOS_parameters.maximum_number_of_iterations;

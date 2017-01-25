@@ -48,7 +48,7 @@ public class IntendedClassEvaluation {
 
 		//get all found IRIs from results folder
 		String owlDirName = "/home/friedi/workspace/TermSearch/src/annotated-terms/flux-annotated/final/setting-ados-cluster-211-30-100-30-5-flux4/result0";
-		List<String> owlFileNames = ADOSEval.fileList(owlDirName);
+		List<String> owlFileNames = JoyceEval.fileList(owlDirName);
 		HashSet<String> foundClassIRIs = new HashSet<String>();
 		
 		for(String owlFileName : owlFileNames) {

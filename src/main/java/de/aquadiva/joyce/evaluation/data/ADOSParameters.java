@@ -1,6 +1,6 @@
 package de.aquadiva.joyce.evaluation.data;
 
-import de.aquadiva.joyce.processes.services.OntologyModuleSelectionService.SelectionParameters;
+import de.aquadiva.joyce.processes.services.SelectionParameters;
 
 public class ADOSParameters {
 	public SelectionParameters.SelectionType selection_object;

@@ -25,7 +25,7 @@ public class DisambiguationEvaluator {
 		
 		//TODO fill
 		String owlDirName = "";
-		List<String> owlFileNames = ADOSEval.fileList(owlDirName);
+		List<String> owlFileNames = JoyceEval.fileList(owlDirName);
 		HashSet<String> foundClassIRIs = new HashSet<String>();
 		
 		for(String owlFileName : owlFileNames) {

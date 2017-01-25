@@ -41,8 +41,8 @@ import de.aquadiva.joyce.evaluation.data.BiOSSParameters;
 import de.aquadiva.joyce.evaluation.data.EvaluationSetting;
 import de.aquadiva.joyce.processes.services.ConstantScoringChain;
 import de.aquadiva.joyce.processes.services.IOntologyModuleSelectionService;
+import de.aquadiva.joyce.processes.services.SelectionParameters;
 import de.aquadiva.joyce.processes.services.VariableScoringChain;
-import de.aquadiva.joyce.processes.services.OntologyModuleSelectionService.SelectionParameters;
 
 public class BiOSSComparator implements IBiOSSComparator {
 	private IOntologyDBService dbService;

@@ -17,11 +17,11 @@
 				<version>2.2</version>
 				<configuration>
 					<descriptors>
-						<descriptor>ados-evaluation-assembly.xml</descriptor>
+						<descriptor>joyce-evaluation-assembly.xml</descriptor>
 					</descriptors>
 					<archive>
 						<manifest>
-							<mainClass>de.aquadiva.ontologyselection.evaluation.ADOSEval</mainClass>
+							<mainClass>de.aquadiva.joyce.evaluation.JoyceEval</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
